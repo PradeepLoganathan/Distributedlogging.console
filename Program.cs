@@ -40,9 +40,11 @@ namespace DistributedLogging.Console
 
                 logger = logconf.CreateLogger();
 
+                int rand;
+
                 for (int I = 0; I < 100; I++)
                 {
-                    int rand;
+                    
                     Random r = new Random();
                     rand = r.Next();
 
@@ -65,7 +67,7 @@ namespace DistributedLogging.Console
         static bool LogError(Exception ex)
         {
             logger.Error(ex, "Unhandled Exception with Snapshot");
-            return false;
+            return true;
         }
 
     }
