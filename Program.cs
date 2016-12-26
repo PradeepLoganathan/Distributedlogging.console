@@ -5,21 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using Serilog;
 using Serilog.Core;
+using Serilog.Enrichers;
 
 
 namespace DistributedLogging.Console
 {
     class Program
     {
+        static LoggerConfiguration logconf;
+        static ILogger logger;
+
         static void Main(string[] args)
         {
-            LoggerConfiguration logconf;
-            ILogger logger;
+            
             try
             {
+                var levelSwitch = new LoggingLevelSwitch();
+                levelSwitch.MinimumLevel = Serilog.Events.LogEventLevel.Verbose;
+
                 logconf = new LoggerConfiguration()
-                          .MinimumLevel.Is(Serilog.Events.LogEventLevel.Verbose)
+                          .MinimumLevel.ControlledBy(levelSwitch)
                           .WriteTo.LiterateConsole()
+                          .Enrich.WithMachineName()
+                          .Enrich.WithProcessId()
+                          .Enrich.WithThreadId()
                           .WriteTo.Elasticsearch(new Serilog.Sinks.Elasticsearch.ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
                           {
                               AutoRegisterTemplate = true,
@@ -31,23 +40,36 @@ namespace DistributedLogging.Console
 
                 logger = logconf.CreateLogger();
 
-                for (int I = 0; I < 100000; I++)
+                for (int I = 0; I < 100; I++)
                 {
-                    
-                    logger.Error("THis is the informaton");
+                    int rand;
+                    Random r = new Random();
+                    rand = r.Next();
+
+                    if (rand % 2 == 0)
+                        logger.Information("This is an information log submitted at {time}", DateTime.Now);
+                    else
+                        logger.Error("This is an error submitted at {time}", DateTime.Now);
                 }
+
+                throw new Exception("I have to fail");
             }
 
-            catch (Exception e)
+            catch (Exception e) when (LogError(e))
             {
                  
             }
-
-            
                                          
         }
+
+        static bool LogError(Exception ex)
+        {
+            logger.Error(ex, "Unhandled Exception with Snapshot");
+            return false;
+        }
+
     }
 
 
-    
+
 }
