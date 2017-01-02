@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Serilog.Events;
 
-namespace DistributedLogging.Console
+namespace StructuredLogger
 {
     class StateIDEnricher: ILogEventEnricher
     {
