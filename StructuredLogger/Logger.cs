@@ -37,9 +37,6 @@ namespace StructuredLogger
 
 
             logger = logconf.CreateLogger().ForContext(typeof(Logger));
-
-
-
         }
   
     }

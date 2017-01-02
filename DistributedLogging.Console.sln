@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLogging.Console", "DistributedLogging.Console.csproj", "{02E12F32-FDBA-47D1-951A-184F2384594F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuredLogger", "StructuredLogger\StructuredLogger.csproj", "{B77DDC3D-AC97-4E61-A69D-C0168B587890}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructuredLogger.test", "StructuredLogger.test\StructuredLogger.test.csproj", "{31B56624-9D84-465B-8F0E-094FF36E5774}"
@@ -21,22 +19,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|ARM.Build.0 = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|x64.Build.0 = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Debug|x86.Build.0 = Debug|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|ARM.ActiveCfg = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|ARM.Build.0 = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|x64.ActiveCfg = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|x64.Build.0 = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|x86.ActiveCfg = Release|Any CPU
-		{02E12F32-FDBA-47D1-951A-184F2384594F}.Release|x86.Build.0 = Release|Any CPU
 		{B77DDC3D-AC97-4E61-A69D-C0168B587890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B77DDC3D-AC97-4E61-A69D-C0168B587890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B77DDC3D-AC97-4E61-A69D-C0168B587890}.Debug|ARM.ActiveCfg = Debug|Any CPU
