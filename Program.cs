@@ -36,7 +36,6 @@ namespace DistributedLogging.Console
 
             logconf = new LoggerConfiguration()
                       .MinimumLevel.ControlledBy(levelSwitch)
-                      .WriteTo.LiterateConsole()
                       .Enrich.WithMachineName()
                       .Enrich.WithProcessId()
                       .Enrich.WithThreadId()
