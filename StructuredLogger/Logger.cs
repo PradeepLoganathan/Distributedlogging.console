@@ -10,12 +10,25 @@ namespace StructuredLogger
 {
     public class Logger
     {
-        LoggerConfiguration logconf;
-        ILogger logger;
+        private LoggerConfiguration logconf;
+        private ILogger log;
 
         public Logger()
         {
 
+            
+        }
+
+        public ILogger Log
+        {
+            get
+            {
+                return this.log;
+            }
+        }
+
+        public void Initialize()
+        {
             var levelSwitch = new LoggingLevelSwitch();
             levelSwitch.MinimumLevel = Serilog.Events.LogEventLevel.Verbose;
 
@@ -36,7 +49,9 @@ namespace StructuredLogger
                       });
 
 
-            logger = logconf.CreateLogger().ForContext(typeof(Logger));
+            log = logconf.CreateLogger().ForContext(typeof(Logger));
+            log.Information("THis is the intialization message");
+
         }
   
     }

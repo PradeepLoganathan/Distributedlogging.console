@@ -1,17 +1,20 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StructuredLogger;
 
 namespace StructuredLogger.test
 {
     [TestClass]
     public class UnitTest1
     {
+        StructuredLogger.Logger logger;
+
         [TestMethod]
         public void TestMethod1()
         {
             int rand;
-            StructuredLogger.Logger logger;
             logger = new Logger();
+            logger.Initialize();
 
             try
             {
@@ -21,9 +24,9 @@ namespace StructuredLogger.test
                     rand = r.Next();
 
                     if (rand % 2 == 0)
-                        logger.Information("This is an information log submitted at {time}", DateTime.Now);
+                        logger.Log.Information("This is an information log submitted at {time}", DateTime.Now);
                     else
-                        logger.Error("This is an error submitted at {time}", DateTime.Now);
+                        logger.Log.Error("This is an error submitted at {time}", DateTime.Now);
 
                 }
 
@@ -38,7 +41,7 @@ namespace StructuredLogger.test
 
         bool LogError(Exception ex)
         {
-            logger.Error(ex, "Unhandled Exception with Snapshot");
+            logger.Log.Error(ex, "Unhandled Exception with Snapshot");
             return true;
         }
     }
