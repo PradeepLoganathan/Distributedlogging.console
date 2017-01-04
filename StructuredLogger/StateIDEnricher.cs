@@ -8,14 +8,14 @@ using Serilog.Events;
 
 namespace StructuredLogger
 {
-    class StateIDEnricher: ILogEventEnricher
+    class StateIDEnricher : ILogEventEnricher
     {
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
             logEvent.AddPropertyIfAbsent(
                 propertyFactory.CreateProperty("StateID", Guid.NewGuid(), false));
         }
-        
+
     }
 
 }

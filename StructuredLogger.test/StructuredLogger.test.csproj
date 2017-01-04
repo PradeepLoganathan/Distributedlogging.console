@@ -58,13 +58,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StructuredLogger\StructuredLogger.csproj">
-      <Project>{b77ddc3d-ac97-4e61-a69d-c0168b587890}</Project>
-      <Name>StructuredLogger</Name>
-    </ProjectReference>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\StructuredLogger\StructuredLogger.csproj">
+      <Project>{4a3abe5d-a816-4ba7-872e-3faa35fdc986}</Project>
+      <Name>StructuredLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
